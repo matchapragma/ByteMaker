@@ -52,4 +52,4 @@ Message from Annie: "Good morning starshine, the Earth says hello!!"
 ```
 
 ## License
-ByteMaker is licensed under the Apache 2.0 License. Please refer to the [LICENSE](LICENSE) file.
+ByteMaker is licensed under the Apache 2.0 License. Please refer to the [LICENSE](LICENSE.md) file.
