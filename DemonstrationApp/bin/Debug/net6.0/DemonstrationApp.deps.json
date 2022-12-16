@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "DemonstrationApp/1.0.0": {
+        "dependencies": {
+          "ByteMaker": "1.0.0"
+        },
+        "runtime": {
+          "DemonstrationApp.dll": {}
+        }
+      },
+      "ByteMaker/1.0.0": {
+        "runtime": {
+          "ByteMaker.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DemonstrationApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ByteMaker/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

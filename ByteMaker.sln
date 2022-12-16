@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteMaker", "ByteMaker\ByteMaker.csproj", "{FA4DAF67-690D-4E1B-97D2-2D5F00FC71E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemonstrationApp", "DemonstrationApp\DemonstrationApp.csproj", "{128608F6-97B0-4086-B143-E3952350B96C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA4DAF67-690D-4E1B-97D2-2D5F00FC71E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA4DAF67-690D-4E1B-97D2-2D5F00FC71E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA4DAF67-690D-4E1B-97D2-2D5F00FC71E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA4DAF67-690D-4E1B-97D2-2D5F00FC71E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{128608F6-97B0-4086-B143-E3952350B96C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{128608F6-97B0-4086-B143-E3952350B96C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{128608F6-97B0-4086-B143-E3952350B96C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{128608F6-97B0-4086-B143-E3952350B96C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,12 @@
+/Users/alocke/RiderProjects/ByteMaker/ByteMaker/bin/Debug/net6.0/ByteMaker.deps.json
+/Users/alocke/RiderProjects/ByteMaker/ByteMaker/bin/Debug/net6.0/ByteMaker.dll
+/Users/alocke/RiderProjects/ByteMaker/ByteMaker/bin/Debug/net6.0/ByteMaker.pdb
+/Users/alocke/RiderProjects/ByteMaker/ByteMaker/obj/Debug/net6.0/ByteMaker.csproj.AssemblyReference.cache
+/Users/alocke/RiderProjects/ByteMaker/ByteMaker/obj/Debug/net6.0/ByteMaker.GeneratedMSBuildEditorConfig.editorconfig
+/Users/alocke/RiderProjects/ByteMaker/ByteMaker/obj/Debug/net6.0/ByteMaker.AssemblyInfoInputs.cache
+/Users/alocke/RiderProjects/ByteMaker/ByteMaker/obj/Debug/net6.0/ByteMaker.AssemblyInfo.cs
+/Users/alocke/RiderProjects/ByteMaker/ByteMaker/obj/Debug/net6.0/ByteMaker.csproj.CoreCompileInputs.cache
+/Users/alocke/RiderProjects/ByteMaker/ByteMaker/obj/Debug/net6.0/ByteMaker.dll
+/Users/alocke/RiderProjects/ByteMaker/ByteMaker/obj/Debug/net6.0/refint/ByteMaker.dll
+/Users/alocke/RiderProjects/ByteMaker/ByteMaker/obj/Debug/net6.0/ByteMaker.pdb
+/Users/alocke/RiderProjects/ByteMaker/ByteMaker/obj/Debug/net6.0/ref/ByteMaker.dll
