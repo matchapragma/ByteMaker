@@ -1,5 +1,5 @@
 # ByteMaker
-** Simple C# Library for Making Custom Files **
+**Simple C# Library for Making Custom Files**
 
 ## What?
 ByteMaker is a small C# library for writing and reading to files.
