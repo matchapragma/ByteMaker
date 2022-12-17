@@ -15,6 +15,8 @@ Your file can store:
 - Booleans `BMBoolean`
 - All Numeric Types (e.g. sbyte `BMSignedByte`, int `BMInteger`, ulong `BMUnsignedLong`)
 
+Strings can be encoded/decoded in ASCII, Latin Alphabet No.1 (ISO/IEC 8859-1) and Unicode (Little-Endian)
+
 ```csharp
 BMFile file = new("myFile", "locke", new()
 {
