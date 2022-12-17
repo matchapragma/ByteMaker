@@ -14,6 +14,7 @@ namespace ByteMaker
         public string extension;
 
         private List<BMFileComponent> components = new();
+        private BMProcessor processor;
         
         /// <summary>
         /// Reads a file and creates an array of objects per the BMFile's configuration.
@@ -28,6 +29,15 @@ namespace ByteMaker
             try
             {
                 byte[] readBytes = File.ReadAllBytes(filePath);
+
+                if (processor != null)
+                {
+                    if (!processor.Query(ref readBytes))
+                    {
+                        return null;
+                    }
+                    processor.Strip(ref readBytes);
+                }
 
                 int byteIndex = 0;
 
@@ -70,12 +80,15 @@ namespace ByteMaker
 
             string filePath = $"{path}/{fileName ?? this.fileName}.{extension ?? this.extension}";
 
+            if (processor != null) { processor.Process(ref bytes); }
+            
             List<byte> byteArray = new();
             foreach (byte[] arr in bytes)
             {
                 foreach(byte b in arr) {  byteArray.Add(b); }
             }
-
+            
+            
             try
             {
                 File.WriteAllBytes(filePath, byteArray.ToArray());
@@ -90,11 +103,13 @@ namespace ByteMaker
         /// <param name="fileName">The name of the file.</param>
         /// <param name="extension">The extension of the file sans starting full stop.</param>
         /// <param name="components">The fields of this file.</param>
-        public BMFile(string fileName, string extension, List<BMFileComponent> components)
+        /// <param name="processor">Processes the file before it is written.</param>
+        public BMFile(string fileName, string extension, List<BMFileComponent> components, BMProcessor? processor = null)
         {
             this.fileName = fileName;
             this.extension = extension;
             this.components = components;
+            this.processor = processor;
         }
     }
 }

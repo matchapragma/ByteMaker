@@ -1,4 +1,4 @@
-namespace ByteMaker.Numbers;
+namespace ByteMaker;
 
 /// <summary>
 /// A boolean represented by a single byte.
