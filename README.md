@@ -14,6 +14,7 @@ Your file can store:
 - Strings of a variable length `BMLazyString`
 - Booleans `BMBoolean`
 - All Numeric Types (e.g. sbyte `BMSignedByte`, int `BMInteger`, ulong `BMUnsignedLong`)
+- Single and Double Floating Points `BMSingleFloatingPoint`, `BMDoubleFloatingPoint`
 
 Strings can be encoded/decoded in ASCII, Latin Alphabet No.1 (ISO/IEC 8859-1) and Unicode (Little-Endian)
 
