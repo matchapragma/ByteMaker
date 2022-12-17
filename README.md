@@ -2,7 +2,7 @@
 **Simple C# Library for Making Custom Files**
 
 ## What?
-ByteMaker is a small C# library for writing and reading to files.
+ByteMaker is a small C# library for writing and reading to files. A single point of reference (`BMFile`) allows you to easily and visually create your file format and easily read or write using this format.
 
 ## How?
 
@@ -14,6 +14,8 @@ Your file can store:
 - Strings of a variable length `BMLazyString`
 - Booleans `BMBoolean`
 - All Numeric Types (e.g. sbyte `BMSignedByte`, int `BMInteger`, ulong `BMUnsignedLong`)
+
+Strings can be encoded/decoded in ASCII, Latin Alphabet No.1 (ISO/IEC 8859-1) and Unicode (Little-Endian)
 
 ```csharp
 BMFile file = new("myFile", "locke", new()
@@ -52,4 +54,4 @@ Message from Annie: "Good morning starshine, the Earth says hello!!"
 ```
 
 ## License
-ByteMaker is licensed under the Apache 2.0 License. Please refer to the [LICENSE](LICENSE) file.
+ByteMaker is licensed under the Apache 2.0 License. Please refer to the [LICENSE](LICENSE.md) file.
