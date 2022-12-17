@@ -2,7 +2,7 @@
 **Simple C# Library for Making Custom Files**
 
 ## What?
-ByteMaker is a small C# library for writing and reading to files.
+ByteMaker is a small C# library for writing and reading to files. A single point of reference (`BMFile`) allows you to easily and visually create your file format and easily read or write using this format.
 
 ## How?
 
