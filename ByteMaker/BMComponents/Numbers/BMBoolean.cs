@@ -22,8 +22,9 @@ public class BMBoolean: BMFileComponent
 
     public override object Read(ref int index, ref byte[] readBytes)
     {
-        return readBytes[index] == onRepresentation;
+        int i = index;
         index++;
+        return readBytes[i] == onRepresentation;
     }
 
     public BMBoolean(string name, byte on, byte off)
