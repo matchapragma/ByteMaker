@@ -4,6 +4,9 @@
 ## What?
 ByteMaker is a small C# library for writing and reading to files. A single point of reference (`BMFile`) allows you to easily and visually create your file format and easily read or write using this format.
 
+## Installation
+Go to Releases and download either the .ZIP or Unity Package. Extract the contents of the .ZIP and drop the files into your C# project or open the Unity Package with your Unity project open.
+
 ## How?
 
 ### Setup
