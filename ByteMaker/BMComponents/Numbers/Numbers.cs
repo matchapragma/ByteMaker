@@ -8,6 +8,11 @@ public class BMByte: BMFileComponent
 
     public override object Read(ref int index, ref byte[] readBytes)
     { int i = index; index ++; return readBytes[i]; }
+
+    public BMByte(string name)
+    {
+        this.fieldName = name;
+    }
 }
 
 public class BMSignedByte: BMFileComponent
@@ -16,6 +21,11 @@ public class BMSignedByte: BMFileComponent
 
     public override object Read(ref int index, ref byte[] readBytes)
     { int i = index; index ++; return (sbyte)readBytes[i]; }
+    
+    public BMSignedByte(string name)
+    {
+        this.fieldName = name;
+    }
 }
 
 #endregion
@@ -30,7 +40,7 @@ public class BMShort: BMFileComponent
         byte[] actual = new byte[2];
         for (int i = 0; i < raw.Length; i++)
         {
-            actual[2 - raw.Length - 1 + i] = raw[i];
+            actual[2 - raw.Length + i] = raw[i];
         }
 
         return actual;
@@ -38,6 +48,11 @@ public class BMShort: BMFileComponent
 
     public override object Read(ref int index, ref byte[] readBytes)
     { int i = index; index += 2; return BitConverter.ToInt32(readBytes[i..(i + 2)]); }
+    
+    public BMShort(string name)
+    {
+        this.fieldName = name;
+    }
 }
 
 public class BMUnsignedShort: BMFileComponent
@@ -48,7 +63,7 @@ public class BMUnsignedShort: BMFileComponent
         byte[] actual = new byte[2];
         for (int i = 0; i < raw.Length; i++)
         {
-            actual[2 - raw.Length - 1 + i] = raw[i];
+            actual[2 - raw.Length + i] = raw[i];
         }
 
         return actual;
@@ -56,6 +71,11 @@ public class BMUnsignedShort: BMFileComponent
 
     public override object Read(ref int index, ref byte[] readBytes)
     { int i = index; index += 2; return BitConverter.ToUInt16(readBytes[i..(i + 2)]); }
+    
+    public BMUnsignedShort(string name)
+    {
+        this.fieldName = name;
+    }
 }
 
 #endregion
@@ -70,7 +90,7 @@ public class BMInteger: BMFileComponent
         byte[] actual = new byte[4];
         for (int i = 0; i < raw.Length; i++)
         {
-            actual[4 - raw.Length - 1 + i] = raw[i];
+            actual[4 - raw.Length + i] = raw[i];
         }
 
         return actual;
@@ -78,6 +98,11 @@ public class BMInteger: BMFileComponent
 
     public override object Read(ref int index, ref byte[] readBytes)
     { int i = index; index += 4; return BitConverter.ToInt32(readBytes[i..(i + 4)]); }
+    
+    public BMInteger(string name)
+    {
+        this.fieldName = name;
+    }
 }
 
 public class BMUnsignedInteger: BMFileComponent
@@ -88,7 +113,7 @@ public class BMUnsignedInteger: BMFileComponent
         byte[] actual = new byte[4];
         for (int i = 0; i < raw.Length; i++)
         {
-            actual[4 - raw.Length - 1 + i] = raw[i];
+            actual[4 - raw.Length + i] = raw[i];
         }
 
         return actual;
@@ -96,6 +121,11 @@ public class BMUnsignedInteger: BMFileComponent
 
     public override object Read(ref int index, ref byte[] readBytes)
     { int i = index; index += 4; return BitConverter.ToUInt32(readBytes[i..(i + 4)]); }
+    
+    public BMUnsignedInteger(string name)
+    {
+        this.fieldName = name;
+    }
 }
 
 #endregion
@@ -117,6 +147,11 @@ public class BMLong: BMFileComponent
 
     public override object Read(ref int index, ref byte[] readBytes)
     { int i = index; index += 16; return BitConverter.ToInt64(readBytes[i..(i + 16)]); }
+    
+    public BMLong(string name)
+    {
+        this.fieldName = name;
+    }
 }
 
 public class BMUnsignedLong: BMFileComponent
@@ -134,6 +169,11 @@ public class BMUnsignedLong: BMFileComponent
 
     public override object Read(ref int index, ref byte[] readBytes)
     { int i = index; index += 16; return BitConverter.ToUInt64(readBytes[i..(i + 16)]); }
+    
+    public BMUnsignedLong(string name)
+    {
+        this.fieldName = name;
+    }
 }
 
 #endregion

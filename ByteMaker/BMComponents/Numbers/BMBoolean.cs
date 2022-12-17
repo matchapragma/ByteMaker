@@ -25,4 +25,11 @@ public class BMBoolean: BMFileComponent
         return readBytes[index] == onRepresentation;
         index++;
     }
+
+    public BMBoolean(string name, byte on, byte off)
+    {
+        this.fieldName = name;
+        this.onRepresentation = on;
+        this.offRepresentation = off;
+    }
 }
