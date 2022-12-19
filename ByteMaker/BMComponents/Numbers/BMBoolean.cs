@@ -7,13 +7,7 @@ namespace ByteMaker
     {
         private readonly byte onRepresentation;
         private readonly byte offRepresentation;
-
-        public BMBoolean(byte onRepresentation = 0xFF, byte offRepresentation = 0x00)
-        {
-            this.onRepresentation = onRepresentation;
-            this.offRepresentation = offRepresentation;
-        }
-    
+        
         public override byte[] Write(object content)
         {
             bool b = (bool)content;
@@ -27,7 +21,7 @@ namespace ByteMaker
             return readBytes[i] == onRepresentation;
         }
 
-        public BMBoolean(string name, byte on, byte off)
+        public BMBoolean(string name, byte on = 0xFF, byte off = 0x00)
         {
             this.fieldName = name;
             this.onRepresentation = on;
