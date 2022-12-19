@@ -1,5 +1,6 @@
-namespace ByteMaker;
-
+namespace ByteMaker
+{
+    
 #region Byte
 
 public class BMByte: BMFileComponent
@@ -177,3 +178,4 @@ public class BMUnsignedLong: BMFileComponent
 }
 
 #endregion
+}
