@@ -57,5 +57,54 @@ The example above will output:
 Message from Annie: "Good morning starshine, the Earth says hello!!"
 ```
 
+## Cool Extra Things
+### Custom types
+You can go beyond the basic types provided by ByteMaker. Below is an example for writing and reading Vector2s.
+```csharp
+public class BMVector2: BMFileComponent
+{
+    public override byte[] Write(object content)
+    {
+        Vector2 v = (Vector2)content;
+        byte[] x = (new BMSingleFloatingPoint("_")).Write(v.x);
+        byte[] y = (new BMSingleFloatingPoint("_")).Write(v.y);
+
+        List<byte> bytes = new();
+        foreach(byte b in x) { bytes.Add(b); }
+        foreach(byte b in y) { bytes.Add(b); }
+
+        return bytes.ToArray();
+    }
+
+    public override object Read(ref int index, ref byte[] readBytes)
+    {
+        byte[] rawV = readBytes[index..(index + 8)];
+        byte[] rawX = rawV[0..3];
+        byte[] rawY = rawV[4..];
+
+        index += 8;
+        return new Vector2(BitConverter.ToSingle(rawX), BitConverter.ToSingle(rawY));
+    }
+
+    public BMVector2(string name)
+    {
+        this.fieldName = name;
+    }
+}
+```
+
+### Processors
+Processors are a special object which processes your file's data before it is written. This is useful for including stuff like checksums.
+Included in ByteMaker is a simple processor which adds a Checksum at the end of your file and will validate it when the file is read.
+
+To use processors, add it to the end of your file definition.
+```csharp
+BMFile file = new("myFile", "locke", new()
+{
+    new BMFixedString("name", 10, BMTextEncoding.Unicode),
+    new BMLazyString("message", BMTextEncoding.ASCII, 0xFF),
+}, new BMEndingChecksumSHA512());
+```
+
 ## License
 ByteMaker is licensed under the Apache 2.0 License. Please refer to the [LICENSE](LICENSE.md) file.
