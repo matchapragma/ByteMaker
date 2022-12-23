@@ -29,7 +29,9 @@ namespace ByteMaker
             byte[] stringBytes = encoding switch
             {
                 BMTextEncoding.ASCII => Encoding.ASCII.GetBytes(contents),
+                #if NET5_0_OR_GREATER
                 BMTextEncoding.Latin1 => Encoding.Latin1.GetBytes(contents),
+                #endif
                 BMTextEncoding.Unicode => Encoding.Unicode.GetBytes(contents),
                 _ => throw new ArgumentOutOfRangeException()
             };
@@ -53,8 +55,10 @@ namespace ByteMaker
             
             return encoding switch
             {
-                BMTextEncoding.ASCII => Encoding.ASCII.GetString(thisString),
+                BMTextEncoding.ASCII => Encoding.ASCII.GetString(thisString),  
+                #if NET5_0_OR_GREATER
                 BMTextEncoding.Latin1 => Encoding.Latin1.GetString(thisString),
+                #endif
                 BMTextEncoding.Unicode => Encoding.Unicode.GetString(thisString),
                 _ => throw new ArgumentOutOfRangeException()
             };

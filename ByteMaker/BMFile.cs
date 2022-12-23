@@ -27,6 +27,9 @@ namespace ByteMaker
         public object[] ReadFile(string path, string? fileName = null, string? extension = null)
         {
             string filePath = $"{path}/{fileName ?? this.fileName}.{extension ?? this.extension}";
+
+            if (File.Exists(filePath)) { throw new PathDoesNotExistException(filePath); }
+            
             try
             {
                 byte[] readBytes = File.ReadAllBytes(filePath);
@@ -79,6 +82,15 @@ namespace ByteMaker
                 bytes.Add(comp.Write(contents[comp.FieldName]));
             }
 
+            if (extension != null)
+            {
+                if (extension.ToCharArray()[0] == '.')
+                {
+                    extension = extension.TrimStart('.');
+                }
+            }
+            
+            if (!Directory.Exists(path)) { Directory.CreateDirectory(path); }
             string filePath = $"{path}/{fileName ?? this.fileName}.{extension ?? this.extension}";
 
             if (processor != null) { processor.Process(ref bytes); }
@@ -88,8 +100,7 @@ namespace ByteMaker
             {
                 foreach(byte b in arr) {  byteArray.Add(b); }
             }
-            
-            
+
             try
             {
                 File.WriteAllBytes(filePath, byteArray.ToArray());
@@ -108,7 +119,14 @@ namespace ByteMaker
         public BMFile(string fileName, string extension, List<BMFileComponent> components, BMProcessor? processor = null)
         {
             this.fileName = fileName;
-            this.extension = extension;
+            if (extension.ToCharArray()[0] == '.')
+            {
+                this.extension = extension.TrimStart('.');
+            }
+            else
+            {
+                this.extension = extension;
+            }
             this.components = components;
             this.processor = processor;
         }

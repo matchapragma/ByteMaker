@@ -36,7 +36,14 @@ namespace ByteMaker
             byte[] fileHash = file[^64..];
             byte[] hash = sha512.ComputeHash(fileStrippedOfHash);
 
-            return fileHash.SequenceEqual(hash);
+            if (!fileHash.SequenceEqual(hash))
+            {
+                throw new FileInvalidException();
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }
