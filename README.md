@@ -21,6 +21,7 @@ Your file can store:
 
 Strings can be encoded/decoded in ASCII, Latin Alphabet No.1 (ISO/IEC 8859-1) and Unicode (Little-Endian)
 
+This is an example file:
 ```csharp
 BMFile file = new("myFile", "locke", new()
 {
@@ -59,7 +60,9 @@ Message from Annie: "Good morning starshine, the Earth says hello!!"
 
 ## Cool Extra Things
 ### Custom types
-You can go beyond the basic types provided by ByteMaker. Below is an example for writing and reading Vector2s.
+You can go beyond the basic types provided by ByteMaker. Create a class which inherits from `BMFileComponent` and write custom writing/reading logic.
+
+Below is an example for writing and reading Vector2s in the context of a Unity game.
 ```csharp
 public class BMVector2: BMFileComponent
 {
@@ -95,7 +98,7 @@ public class BMVector2: BMFileComponent
 
 ### Processors
 Processors are a special object which processes your file's data before it is written. This is useful for including stuff like checksums.
-Included in ByteMaker is a simple processor which adds a Checksum at the end of your file and will validate it when the file is read.
+Included in ByteMaker is a simple processor which adds a SHA512 Checksum at the end of your file and will validate it when the file is read.
 
 To use processors, add it to the end of your file definition.
 ```csharp
