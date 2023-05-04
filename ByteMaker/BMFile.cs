@@ -30,39 +30,32 @@ namespace ByteMaker
 
             if (File.Exists(filePath)) { throw new PathDoesNotExistException(filePath); }
             
-            try
+            byte[] readBytes = File.ReadAllBytes(filePath);
+
+            if (processor != null)
             {
-                byte[] readBytes = File.ReadAllBytes(filePath);
-
-                if (processor != null)
+                if (!processor.Query(ref readBytes))
                 {
-                    if (!processor.Query(ref readBytes))
-                    {
-                        return null;
-                    }
-                    processor.Strip(ref readBytes);
+                    throw new FileInvalidException();
                 }
+                processor.Strip(ref readBytes);
+            }
 
-                int byteIndex = 0;
+            int byteIndex = 0;
 
-                List<object> objects = new();
+            List<object> objects = new();
 
-                foreach (BMFileComponent comp in components)
+            foreach (BMFileComponent comp in components)
+            {
+                if (byteIndex >= readBytes.Length)
                 {
-                    if (byteIndex >= readBytes.Length)
-                    {
-                        break;
-                    }
+                    break;
+                }
                     
-                    objects.Add(comp.Read(ref byteIndex, ref readBytes));
-                }
+                objects.Add(comp.Read(ref byteIndex, ref readBytes));
+            }
                 
-                return objects.ToArray();
-            }
-            catch
-            {
-                return null;
-            }
+            return objects.ToArray();
         }
 
         /// <summary>
@@ -101,12 +94,8 @@ namespace ByteMaker
                 foreach(byte b in arr) {  byteArray.Add(b); }
             }
 
-            try
-            {
-                File.WriteAllBytes(filePath, byteArray.ToArray());
-                return true;
-            }
-            catch { return false; }
+            File.WriteAllBytes(filePath, byteArray.ToArray());
+            return true;
         }
 
         /// <summary>

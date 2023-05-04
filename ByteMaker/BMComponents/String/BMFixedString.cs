@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ByteMaker
 {
-        /// <summary>
+    /// <summary>
     /// A string with a fixed length.
     /// </summary>
     public class BMFixedString : BMFileComponent
