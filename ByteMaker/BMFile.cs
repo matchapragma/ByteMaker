@@ -28,7 +28,7 @@ namespace ByteMaker
         {
             string filePath = $"{path}/{fileName ?? this.fileName}.{extension ?? this.extension}";
 
-            if (File.Exists(filePath)) { throw new PathDoesNotExistException(filePath); }
+            if (!File.Exists(filePath)) { throw new PathDoesNotExistException(filePath); }
             
             byte[] readBytes = File.ReadAllBytes(filePath);
 
