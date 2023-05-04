@@ -22,7 +22,7 @@ namespace ByteMaker
     }
     
     /// <summary>
-    /// Exception for when a BMFileComponent that read/writes collections receives too many or too little items to write.
+    /// Exception for when a BMFileComponent that read/writes collections receives too many items to write.
     /// </summary>
     /// <seealso cref="BMFileComponent"/>
     /// <seealso cref="BMFixedIntegerCollection"/>
