@@ -110,5 +110,8 @@ BMFile file = new("myFile", "locke", new()
 }, new BMEndingChecksumSHA512());
 ```
 
+## Feedback
+Thank you for checking out ByteMaker! This is my first open-source thingy, so please be patient with me if I make some rookie mistakes. In addition to the Issues tab, you can share feedback with me by DM'ing me on Twitter (@matchapragma) or Discord (matchapragma#0336).
+
 ## License
 ByteMaker is licensed under the Apache 2.0 License. Please refer to the [LICENSE](LICENSE.md) file.
