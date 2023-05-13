@@ -115,3 +115,5 @@ Thank you for checking out ByteMaker! This is my first open-source thingy, so pl
 
 ## License
 ByteMaker is licensed under the Apache 2.0 License. Please refer to the [LICENSE](LICENSE.md) file.
+
+© Annie Locke, 2023
