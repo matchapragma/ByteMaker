@@ -19,11 +19,15 @@ namespace ByteMaker
         
         /// <summary>
         /// Reads a file and creates an array of objects per the BMFile's configuration.
+        ///
+        /// Obsolete: Please use ReadFileAsDictionary instead.
         /// </summary>
         /// <param name="path">The path of the file to read.</param>
         /// <param name="fileName">Override the name of the file that was defined by the BMFile.</param>
         /// <param name="extension">Override the extension of the file that was defined by the BMFile.</param>
         /// <returns>An array of objects. Returns null if failed.</returns>
+        /// <seealso cref="ReadFileAsDictionary"/>
+        [Obsolete("Please use \"ReadFileAsDictionary\" instead.", false)]
         public object[] ReadFile(string path, string? fileName = null, string? extension = null)
         {
             string filePath = $"{path}/{fileName ?? this.fileName}.{extension ?? this.extension}";
@@ -56,6 +60,49 @@ namespace ByteMaker
             }
                 
             return objects.ToArray();
+        }
+
+        /// <summary>
+        /// Reads a file and creates an dictionary of objects per the BMFile's configuration. These objects are keyed by
+        /// the FieldName specified by their associated BMComponent.
+        /// </summary>
+        /// <param name="path">The path of the file to read.</param>
+        /// <param name="fileName">Override the name of the file that was defined by the BMFile.</param>
+        /// <param name="extension">Override the extension of the file that was defined by the BMFile.</param>
+        /// <returns>An array of objects. Returns null if failed.</returns>
+        public Dictionary<string, object> ReadFileAsDictionary(string path, string? fileName = null,
+                                                               string? extension = null)
+        {
+            string filePath = $"{path}/{fileName ?? this.fileName}.{extension ?? this.extension}";
+
+            if (!File.Exists(filePath)) { throw new PathDoesNotExistException(filePath); }
+            
+            byte[] readBytes = File.ReadAllBytes(filePath);
+
+            if (processor != null)
+            {
+                if (!processor.Query(ref readBytes))
+                {
+                    throw new FileInvalidException();
+                }
+                processor.Strip(ref readBytes);
+            }
+
+            int byteIndex = 0;
+
+            Dictionary<string, object> objects = new();
+
+            foreach (BMFileComponent comp in components)
+            {
+                if (byteIndex >= readBytes.Length)
+                {
+                    break;
+                }
+                    
+                objects.Add(comp.FieldName, comp.Read(ref byteIndex, ref readBytes));
+            }
+                
+            return objects;
         }
 
         /// <summary>
