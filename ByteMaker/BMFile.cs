@@ -63,7 +63,7 @@ namespace ByteMaker
         }
 
         /// <summary>
-        /// Reads a file and creates an dictionary of objects per the BMFile's configuration. These objects are keyed by
+        /// Reads a file and creates a dictionary of objects per the BMFile's configuration. These objects are keyed by
         /// the FieldName specified by their associated BMComponent.
         /// </summary>
         /// <param name="path">The path of the file to read.</param>
