@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 
-// ByteMaker A1.0
-// (C) LOCKE 2022, Written by Annie Locke
+// ByteMaker 1.1
+// (C) Locke Software 2023, Written by Annie Locke
 
 namespace ByteMaker
 {
