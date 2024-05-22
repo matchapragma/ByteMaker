@@ -139,7 +139,7 @@ namespace ByteMaker
             List<byte> byteArray = new();
             foreach (byte[] arr in bytes)
             {
-                foreach(byte b in arr) {  byteArray.Add(b); }
+                byteArray.AddRange(arr);
             }
 
             File.WriteAllBytes(filePath, byteArray.ToArray());
@@ -156,14 +156,7 @@ namespace ByteMaker
         public BMFile(string fileName, string extension, List<BMFileComponent> components, BMProcessor? processor = null)
         {
             this.fileName = fileName;
-            if (extension.ToCharArray()[0] == '.')
-            {
-                this.extension = extension.TrimStart('.');
-            }
-            else
-            {
-                this.extension = extension;
-            }
+            this.extension = extension.ToCharArray()[0] == '.' ? extension.TrimStart('.') : extension;
             this.components = components;
             this.processor = processor;
         }
