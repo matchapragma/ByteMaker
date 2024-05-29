@@ -140,16 +140,16 @@ public class BMLong: BMFileComponent
     public override byte[] Write(object content)
     {
         byte[] raw = BitConverter.GetBytes((long)content);
-        byte[] actual = new byte[16];
+        byte[] actual = new byte[8];
         for (int i = 0; i < raw.Length; i++)
         {
-            actual[16 - raw.Length - 1 + i] = raw[i];
+            actual[8 - raw.Length + i] = raw[i];
         }
         return actual;
     }
 
     public override object Read(ref int index, ref byte[] readBytes)
-    { int i = index; index += 16; return BitConverter.ToInt64(readBytes[i..(i + 16)]); }
+    { int i = index; index += 8; return BitConverter.ToInt64(readBytes[i..(i + 8)]); }
     
     public BMLong(string name)
     {
@@ -165,7 +165,7 @@ public class BMUnsignedLong: BMFileComponent
         byte[] actual = new byte[8];
         for (int i = 0; i < raw.Length; i++)
         {
-            actual[8 - raw.Length - 1 + i] = raw[i];
+            actual[8 - raw.Length + i] = raw[i];
         }
         return actual;
     }
