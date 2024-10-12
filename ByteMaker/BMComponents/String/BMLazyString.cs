@@ -61,7 +61,7 @@ namespace ByteMaker
             {
                 for (int i = index; i < readBytes.Length; i+=2)
                 {
-                    if (readBytes[i] == escapeByte[0] && readBytes[i + 1] == escapeByte[1]) { break; }
+                    if (readBytes[i] == escapeByte[0] && readBytes[i + 1] == escapeByte[1]) { bytesRead += 2; break; }
                     thisString.Add(readBytes[i]);
                     thisString.Add(readBytes[i + 1]);
                     bytesRead += 2;
@@ -71,7 +71,7 @@ namespace ByteMaker
             {
                 for (int i = index; i < readBytes.Length; i++)
                 {
-                    if (readBytes[i] == escapeByte[0]) { break; }
+                    if (readBytes[i] == escapeByte[0]) { bytesRead++; break; }
                     thisString.Add(readBytes[i]);
                     bytesRead ++;
                 }
